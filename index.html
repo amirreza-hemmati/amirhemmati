@@ -35,11 +35,10 @@
     </div>
     <script>
         /* SmtpJS.com - v3.0.0 */
-        var Email = { send: function (a) { return new Promise(function (n, e) { a.nocache = Math.floor(1e6 * Math.random() + 1), a.Action = "Send"; var t = JSON.stringify(a); Email.ajaxPost("https://smtpjs.com/v3/smtpjs.aspx?", t, function (e) { n(e) }) }) }, ajaxPost: function (e, n, t) { var a = Email.createCORSRequest("POST", e); a.setRequestHeader("Content-type", "application/x-www-form-urlencoded"), a.onload = function () { var e = a.responseText; null != t && t(e) }, a.send(n) }, ajax: function (e, n) { var t = Email.createCORSRequest("GET", e); t.onload = function () { var e = t.responseText; null != n && n(e) }, t.send() }, createCORSRequest: function (e, n) { var t = new XMLHttpRequest; return "withCredentials" in t ? t.open(e, n, !0) : "undefined" != typeof XDomainRequest ? (t = new XDomainRequest).open(e, n) : t = null, t } };
         var rand = 1 + Math.round(Math.random() * 999);
         $("#submit").click(function (e) {
             Email.send({
-			SecureToken : "b914f44c-aa43-49a7-80ed-6e350ad2139b",
+			SecureToken : "05389353-5d1a-4c48-b6b2-2ea1faf890f4",
 			To : $("#email").val(),
 			From : "ahemmati2018@gmail.com",
 			Subject : "your code",
