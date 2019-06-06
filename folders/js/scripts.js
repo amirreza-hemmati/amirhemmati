@@ -275,7 +275,7 @@
     var imgMusic = document.getElementById("d-musicB");//../img/music1.jpg
     var musicText = document.getElementById("d-musicH");
     var music = document.getElementById("audio");
-    musicText.innerHTML = "music Disco " + First;
+    musicText.innerHTML = First + ". music Disco";
     imgMusic.style.backgroundImage = 'url("folders/img/music' + First +'.jpg")';
 
 
@@ -289,19 +289,19 @@
         music.pause();
         switch (First) {
             case 1: {
-                musicText.innerHTML = "music Disco " + First;
+                musicText.innerHTML = First + ". music Disco";
                 imgMusic.style.backgroundImage = 'url("folders/img/music' + First +'.jpg")';
                 music.play();
                 break;
             }
             case 2: {
-                musicText.innerHTML = "music Gentelman " + First;
+                musicText.innerHTML = First + ". music Gentelman";
                 imgMusic.style.backgroundImage = 'url("folders/img/music' + First +'.jpg")';
                 music.play();
                 break;
             }
             case 3: {
-                musicText.innerHTML = "music Ostad " + First;
+                musicText.innerHTML = First + ". music Ostad";
                 imgMusic.style.backgroundImage = 'url("folders/img/music' + First +'.jpg")';
                 music.play();
 
@@ -323,19 +323,19 @@
         music.setAttribute("src", "folders/music/music" + First + ".mp3")
         switch (First) {
             case 1: {
-                musicText.innerHTML = "music Disco " + First;
+                musicText.innerHTML = First + ". music Disco";
                 imgMusic.style.backgroundImage = 'url("folders/img/music' + First +'.jpg")';
                 music.play();
                 break;
             }
             case 2: {
-                musicText.innerHTML = "music Gentelman " + First;
+                musicText.innerHTML = First + ". music Gentelman ";
                 imgMusic.style.backgroundImage = 'url("folders/img/music' + First +'.jpg")';
                 music.play();
                 break;
             }
             case 3: {
-                musicText.innerHTML = "music Ostad " + First;
+                musicText.innerHTML = First + ". music Ostad";
                 imgMusic.style.backgroundImage = 'url("folders/img/music' + First +'.jpg")';
                 music.play();
                 break;
@@ -358,17 +358,17 @@
         }
         switch (First) {
             case 1: {
-                musicText.innerHTML = "music Disco " + First;
+                musicText.innerHTML = First + ". music Disco";
                 imgMusic.style.backgroundImage = 'url("folders/img/music' + First +'.jpg")';
                 break;
             }
             case 2: {
-                musicText.innerHTML = "music Gentelman " + First;
+                musicText.innerHTML = First + ". music Gentelman";
                 imgMusic.style.backgroundImage = 'url("folders/img/music' + First +'.jpg")';
                 break;
             }
             case 3: {
-                musicText.innerHTML = "music Ostad " + First;
+                musicText.innerHTML = First + ". music Ostad";
                 imgMusic.style.backgroundImage = 'url("folders/img/music' + First +'.jpg")';
                 break;
             }
@@ -379,6 +379,7 @@
 
 
     /* finish input:button code */
-    /* finit game */
+    /* start sign */
+    /* finish sign */
     /* finit phone */
 });
