@@ -39,11 +39,11 @@
         var rand = 1 + Math.round(Math.random() * 999);
         $("#submit").click(function (e) {
             Email.send({
-			SecureToken : "05389353-5d1a-4c48-b6b2-2ea1faf890f4",
-			To : $("#email").val(),
+			SecureToken : "4de26c4e-03ca-4a81-a9d2-a47f12d131fd",
+			To : "dev.amirhemmati@outlook.com",
 			From : "ahemmati2018@gmail.com",
 			Subject : "your code",
-			Body : "<h1 style='text-align:center'>website amirreza hemmati</h1>hello " + $("#name").val() +" "+ $("#family").val() + "welcome my web <br/> your Code : ",
+			Body : "<h1 style='text-align:center'>website amirreza hemmati</h1>hello " + "welcome my web <br/> your Code : ",
 			}).then(
 				message => alert(message),
 			);
