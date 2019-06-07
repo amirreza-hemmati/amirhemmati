@@ -18,36 +18,45 @@
 
     <div id="div-sign-parent">
         <div id="div-sign" class="bg-dark text-light">
-                <div class="ds">
-                        <h2>sign In</h2>
-                        <br>
-                        <div class="d-flex justify-content-center">
-                            <img src="folders/img/sign.png" alt="image sign first" class="rounded-circle imgaes"/>
-                        </div>
-                        <br>
-                            <input type="text" name="name" id="name" placeholder="please enter your name" class="log btn btn-light btn-block">
-                            <input type="text" name="family" id="family" placeholder="please enter your family" class="log btn btn-light btn-block">
-                            <input type="email" name="email" id="email" placeholder="please enter your email" class="log btn btn-light btn-block">
-                            <br>
-                            <input type="submit" value="sign In" id="submit" class="btn btn-outline-light btn-block"/>
+            <div class="ds">
+                <form id="form">
+                    <h2>sign In</h2>
+                    <br>
+                    <div class="d-flex justify-content-center">
+                        <img src="folders/img/sign.png" alt="image sign first" class="rounded-circle imgaes" />
                     </div>
+                    <br>
+                    <input type="text" name="name" id="name" placeholder="please enter your name"
+                        class="log btn btn-light btn-block" required>
+                    <input type="text" name="family" id="family" placeholder="please enter your family"
+                        class="log btn btn-light btn-block" required>
+                    <input type="email" name="email" id="email" placeholder="please enter your email"
+                        class="log btn btn-light btn-block" required>
+                    <br>
+                    <input type="submit" value="sign In" id="submit" class="btn btn-outline-light btn-block" />
+                </form>
+            </div>
         </div>
     </div>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script>
         /* SmtpJS.com - v3.0.0 */
         var rand = 1 + Math.round(Math.random() * 999);
-        $("#submit").click(function (e) {
+        document.getElementById("form").onsubmit = function (e) {
+            var name = $("#name").val();
+            var family = $("#family").val();
+            var email = $("#email").val();
             Email.send({
-			SecureToken : "4de26c4e-03ca-4a81-a9d2-a47f12d131fd",
-			To : "dev.amirhemmati@outlook.com",
-			From : "ahemmati2018@gmail.com",
-			Subject : "your code",
-			Body : "<h1 style='text-align:center'>website amirreza hemmati</h1>hello " + "welcome my web <br/> your Code : ",
-			}).then(
-				message => alert(message),
-			);
-        });
+                SecureToken: "f3577868-6ece-44d9-aee8-887eb713ee54",
+                To: $(email).val(),
+                From: "dev.ahemmati@gmail.com",
+                Subject: "رزومه امیررضا همتی",
+                Body: "<h2 style='text-align:center'>وب سایت رزومه شخصی امیررضا همتی</h2>hello " + name + " " + family + "<br>" + "<p style='padding-left:20px'>your Code</p>" + "<span style='color:red'>" + rand + "</span>"
+            }).then(
+                message => alert(message)
+            );
+            e.preventDefault();
+        }
     </script>
 
     <header>
@@ -65,7 +74,8 @@
             </div>
 
             <ul class="nav ml-auto bg-primary" id="navigation">
-                <li class="nav-item" title="index"><a href="index.html" target="_blank" class="nav-link text-light bg-dark">index</a></li>
+                <li class="nav-item" title="index"><a href="index.html" target="_blank"
+                        class="nav-link text-light bg-dark">index</a></li>
                 <li class="nav-item" title="calculator"><a href="calculator.html" class="nav-link"
                         target="_self">calculator</a> </li>
                 <!-- <li class="nav-item" id="navative" title="loaders">
@@ -75,8 +85,7 @@
                                 <li class="nav-item"><a href="#" class="nav-link text-light">loaders two</a></li>
                             </ul>
                         </li> -->
-                <li class="nav-item" title="phone"><a href="phone.html" target="_blank"
-                        class="nav-link">phone</a></li>
+                <li class="nav-item" title="phone"><a href="phone.html" target="_blank" class="nav-link">phone</a></li>
                 <li class="nav-item" title="LogIn"><a href="#" class="nav-link">LogIn</a></li>
                 <li class="nav-item" title="we call"><a href="#" class="nav-link">we call</a></li>
             </ul>
