@@ -19,6 +19,7 @@
     <div id="div-sign-parent">
         <div id="div-sign" class="bg-dark text-light">
             <div class="ds">
+                <form id="form">
                     <h2>sign In</h2>
                     <br>
                     <div class="d-flex justify-content-center">
@@ -26,13 +27,14 @@
                     </div>
                     <br>
                     <input type="text" name="name" id="name" placeholder="please enter your name"
-                        class="log btn btn-light btn-block" >
+                        class="log btn btn-light btn-block" required>
                     <input type="text" name="family" id="family" placeholder="please enter your family"
-                        class="log btn btn-light btn-block" >
+                        class="log btn btn-light btn-block" required>
                     <input type="email" name="email" id="email" placeholder="please enter your email"
-                        class="log btn btn-light btn-block" >
+                        class="log btn btn-light btn-block" required>
                     <br>
                     <input type="submit" value="sign In" id="submit" class="btn btn-outline-light btn-block" />
+                </form>
             </div>
         </div>
     </div>
@@ -40,7 +42,7 @@
     <script>
         /* SmtpJS.com - v3.0.0 */
         var rand = 1 + Math.round(Math.random() * 999);
-        document.getElementById("submit").onclick = function (e) {
+        document.getElementById("form").onsubmit = function (e) {
             var name = $("#name").val();
             var family = $("#family").val();
             var email = $("#email").val();
