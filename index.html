@@ -17,13 +17,14 @@
 <body>
 
     <div id="div-sign-parent">
+        <span style="position:fixed;z-index:100;font-weight: bolder;transition: 1s;" class="text-success display-1" id="welcome">welcome</span>
         <div id="div-sign" class="bg-dark text-light">
             <div class="ds">
                 <form id="form">
                     <h2>sign In</h2>
                     <br>
                     <div class="d-flex justify-content-center">
-                        <img src="folders/img/sign.png" alt="image sign first" class="rounded-circle imgaes" />
+                        <img src="folders/img/sign.png" alt="image sign first" class="rounded-circle imgaes" id="imo" />
                     </div>
                     <br>
                     <input type="text" name="name" id="name" placeholder="please enter your name"
@@ -35,13 +36,37 @@
                     <br>
                     <input type="submit" value="sign In" id="submit" class="btn btn-outline-light btn-block" />
                 </form>
+                <div id="coding" style="display: none">
+                        <input type="number" id="coders" placeholder="please enter your code"
+                        class="log btn btn-light btn-block">
+                        <br>
+                        <input type="button" value="click here" class="btn btn-outline-success" id="sliderign">
+                        <br><br>
+                        <span class="text-light" id="prever">I wrote the email incorrectly</span>
+                </div>
             </div>
         </div>
     </div>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script>
         /* SmtpJS.com - v3.0.0 */
-        var rand = 1 + Math.round(Math.random() * 999);
+        var rand = 1000 + Math.round(Math.random() * 9000);
+
+        $("#name , #email , #family").keyup(function (e) {
+            if ($(this).val() != "") {
+                $("#imo").attr("src", "folders/img/nameimg.jpg");
+            }
+            else {
+                $("#imo").attr("src", "folders/img/sign.png");
+            }
+        });
+
+        $("#submit").click(function (e) {
+            if ($("#name , #email , #family").val() == "" || $("#email").val().indexOf("@") == -1 || $("#email").val().indexOf(".com") == -1) {
+                $("#imo").attr("src", "folders/img/angry.jpg");
+            }
+        });
+
         document.getElementById("form").onsubmit = function (e) {
             var name = $("#name").val();
             var family = $("#family").val();
@@ -53,11 +78,31 @@
                 Subject: "website amirreza hemmati",
                 Body: "<h2 style='text-align:center'>website amirreza hemmati</h2><hr><p style='font-weight: bolder;font-size:22px'>hello " + name + " " + family + "</p><br><p style='padding-left:20px;font-weight: bolder;font-size: 27px'>Your Code : <span style='color:red;font-size:20px'>" + rand + "</span></p>"
             }).then(
-                message => alert(message),
-                $("#name , #family , #email").val("")
-            ); 
+                $("#name , #family , #email").val(""),
+                $("#form").slideUp(1000),
+                $("#coding").slideDown(1100),
+                $("#imo").attr("src", "folders/img/sign.png")
+            );
             e.preventDefault()
         }
+
+        $("#prever").click(function (e) { 
+            $("#form").slideDown(1100),
+            $("#coding").slideUp(1000)
+        });
+
+        $("#sliderign").click(function (e) { 
+            if($("#coders").val() == rand){
+                $("#div-sign").slideUp();
+                $("#welcome").css("transform","scale(1)rotate(360deg)");
+                setTimeout(function(){
+                    $("#welcome").css("transform","scale(0)rotate(-360deg)");
+                    setTimeout(function(){
+                        $("#div-sign-parent").slideUp()
+                    },1700)
+                },1500)
+            }
+        });
     </script>
 
     <header>
