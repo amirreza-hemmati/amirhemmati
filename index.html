@@ -35,6 +35,7 @@
                         class="log btn btn-light btn-block" required>
                     <br>
                     <input type="submit" value="sign In" id="submit" class="btn btn-outline-light btn-block" />
+					<br>
                 </form>
                 <div id="coding" style="display: none">
                         <input type="number" id="coders" placeholder="please enter your code"
@@ -50,6 +51,7 @@
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script>
         /* SmtpJS.com - v3.0.0 */
+		$("#div-sign").focus();
         var rand = 1000 + Math.round(Math.random() * 9000);
 
         $("#name , #email , #family").keyup(function (e) {
@@ -94,11 +96,15 @@
         $("#sliderign").click(function (e) { 
             if($("#coders").val() == rand){
                 $("#div-sign").slideUp();
+				$(window).scrollTop(0)
                 $("#welcome").css("transform","scale(1)rotate(360deg)");
                 setTimeout(function(){
                     $("#welcome").css("transform","scale(0)rotate(-360deg)");
                     setTimeout(function(){
                         $("#div-sign-parent").slideUp()
+						setTimeout(function(){
+							$("#div-sign-parent").remove()
+						},2000)
                     },1700)
                 },1500)
             }
